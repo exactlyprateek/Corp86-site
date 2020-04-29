@@ -12,7 +12,7 @@ let productToRender = parsedParams.get('item')
 
 
 console.log(productToRender)
-if(productToRender == 'p1'){
+if(productToRender == 'p1'){ 
     image.setAttribute("src", "images/prod/p1.jpg");
     code.innerHTML = 211
     desc.innerHTML = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum dignissimos sapiente culpa dolores similique. Quidem quam veniam rerum unde, aperiam labore quis suscipit, nostrum obcaecati animi officia officiis. Doloremque, nihil."
@@ -421,3 +421,89 @@ if(productToRender == 'folder6'){
     desc.innerHTML = "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum dignissimos sapiente culpa dolores similique. Quidem quam veniam rerum unde, aperiam labore quis suscipit, nostrum obcaecati animi officia officiis. Doloremque, nihil."
     BackButton.setAttribute('href',"others.html")
 }
+
+////////////products
+
+if(productToRender == 'pholder'){
+    image.setAttribute('src',"images/prod/pholder.jpg");
+    code.innerHTML = 11
+    desc.innerHTML="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum dignissimos sapiente culpa dolores similique. Quidem quam veniam rerum unde, aperiam labore quis suscipit, nostrum obcaecati animi officia officiis. Doloremque, nihil."
+    BackButton.setAttribute('href','products.html')
+}
+
+if(productToRender == 'tumbler2'){
+    image.setAttribute('src',"images/prod/tumbler.jpg");
+    code.innerHTML = 12
+    desc.innerHTML="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum dignissimos sapiente culpa dolores similique. Quidem quam veniam rerum unde, aperiam labore quis suscipit, nostrum obcaecati animi officia officiis. Doloremque, nihil."
+    BackButton.setAttribute('href','products.html')
+}
+
+
+if(productToRender == 'cholder-1'){
+    image.setAttribute('src',"images/prod/cholder.jpg");
+    code.innerHTML = 13
+    desc.innerHTML="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum dignissimos sapiente culpa dolores similique. Quidem quam veniam rerum unde, aperiam labore quis suscipit, nostrum obcaecati animi officia officiis. Doloremque, nihil."
+    BackButton.setAttribute('href','products.html')
+}
+
+if(productToRender == 'cholder-2'){
+    image.setAttribute('src',"images/prod/cholder2.jpg");
+    code.innerHTML = 14
+    desc.innerHTML="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum dignissimos sapiente culpa dolores similique. Quidem quam veniam rerum unde, aperiam labore quis suscipit, nostrum obcaecati animi officia officiis. Doloremque, nihil."
+    BackButton.setAttribute('href','products.html')
+}
+
+if(productToRender == 'travelkit-1'){
+    image.setAttribute('src',"images/prod/travelkit.jpg");
+    code.innerHTML = 15
+    desc.innerHTML="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum dignissimos sapiente culpa dolores similique. Quidem quam veniam rerum unde, aperiam labore quis suscipit, nostrum obcaecati animi officia officiis. Doloremque, nihil."
+    BackButton.setAttribute('href','products.html')
+}
+
+if(productToRender == 'pad-1'){
+    image.setAttribute('src',"images/prod/pad.jpg");
+    code.innerHTML = 16
+    desc.innerHTML="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum dignissimos sapiente culpa dolores similique. Quidem quam veniam rerum unde, aperiam labore quis suscipit, nostrum obcaecati animi officia officiis. Doloremque, nihil."
+    BackButton.setAttribute('href','products.html')
+}
+
+if(productToRender == 'folder1-1'){
+    image.setAttribute('src',"images/prod/folder1.jpg");
+    code.innerHTML = 17
+    desc.innerHTML="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum dignissimos sapiente culpa dolores similique. Quidem quam veniam rerum unde, aperiam labore quis suscipit, nostrum obcaecati animi officia officiis. Doloremque, nihil."
+    BackButton.setAttribute('href','products.html')
+}
+
+if(productToRender == 'mcholder-1'){
+    image.setAttribute('src',"images/prod/mcholder.jpg");
+    code.innerHTML = 18
+    desc.innerHTML="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum dignissimos sapiente culpa dolores similique. Quidem quam veniam rerum unde, aperiam labore quis suscipit, nostrum obcaecati animi officia officiis. Doloremque, nihil."
+    BackButton.setAttribute('href','products.html')
+}
+
+if(productToRender == 'coaster-1'){
+    image.setAttribute('src',"images/prod/coaster.jpg");
+    code.innerHTML = 19
+    desc.innerHTML="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum dignissimos sapiente culpa dolores similique. Quidem quam veniam rerum unde, aperiam labore quis suscipit, nostrum obcaecati animi officia officiis. Doloremque, nihil."
+    BackButton.setAttribute('href','products.html')
+}
+
+if(productToRender == 'nb-1'){
+    image.setAttribute('src',"images/prod/nb.jpg");
+    code.innerHTML = 20
+    desc.innerHTML="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum dignissimos sapiente culpa dolores similique. Quidem quam veniam rerum unde, aperiam labore quis suscipit, nostrum obcaecati animi officia officiis. Doloremque, nihil."
+    BackButton.setAttribute('href','products.html')
+}
+
+////// mcholder
+
+
+
+
+if(productToRender == 'ph1-1'){
+    image.setAttribute('src',"images/prod/pholder.jpg");
+    code.innerHTML = 111
+    desc.innerHTML="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum dignissimos sapiente culpa dolores similique. Quidem quam veniam rerum unde, aperiam labore quis suscipit, nostrum obcaecati animi officia officiis. Doloremque, nihil."
+    BackButton.setAttribute('href','mholder.html')
+}
+
