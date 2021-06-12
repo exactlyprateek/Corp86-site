@@ -22,11 +22,13 @@
     <br><br><br><br>
             <input type="text" placeholder="Product Code" id="code" /><br><br>
             <input type="text" placeholder="Product Name" id="name" /><br><br>
-            <input type="text" placeholder="a1" id="a1" /><br><br>
-            <input type="text" placeholder="a2" id="a2" /><br><br>
+            <!-- <input type="text" placeholder="a1" id="a1" /><br><br> -->
+            <!-- <input type="text" placeholder="a2" id="a2" /><br><br> -->
             <!-- <input type="text" placeholder="imgSrc" id="imgSrc" /><br><br> -->
             <input type="file" id='fileButton'/><br><br>
-            <button id='addNotebooks' >Add to Notebooks</button>
+            <button id='addNotebooks' >Add to Notebooks</button><br>
+            <button id='addPens' >Add to Pens</button><br>
+            <button id='addCardHolders' >Add to Card Holders</button><br>
 
             <br><br><br><br><br>
     <button onclick="logout()">Logout</button>
@@ -56,12 +58,64 @@
     const fileSelector = document.getElementById('fileButton');
     var fileUrl;
 
-
+    fileSelector.addEventListener('change', async(event) => {
+        const file = event.target.files[0];
+        const storageRef = firebase.storage().ref();
+        const fileRef = storageRef.child(file.name);
+        console.log("Uploaded File Url" , fileUrl);
+        await fileRef.put(file)
+        fileUrl = await fileRef.getDownloadURL();
+      });
 
     addNotebooks.addEventListener("click" , function(){
+        db.collection("notebook").doc(code.value).set({
+          Name: name.value,
+          Code: code.value,
+          // a: a1.value,
+          // a2: a2.value,
+          imgSrc: fileUrl
+        })
+        .then(() => {
+            console.log("Document successfully written!");
+            console.log(fileUrl);
+            alert("Document successfully written!");
+            name.value = '';
+            code.value = '';
+            // a1.value = '';
+            // a2.value = '';
+            fileSelector.value = '';
 
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+      })
 
-        db.collection("notebooks").doc(code.value).set({
+      addPens.addEventListener("click" , function(){
+        db.collection("pens").doc(code.value).set({
+          Name: name.value,
+          Code: code.value,
+          a: a1.value,
+          a2: a2.value,
+          imgSrc: fileUrl
+        })
+        .then(() => {
+            console.log("Document successfully written!");
+            console.log(fileUrl);
+            alert("Document successfully written!");
+            name.value = '';
+            code.value = '';
+            a1.value = '';
+            a2.value = '';
+            fileSelector.value = '';
+
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+      })
+      addCardHolders.addEventListener("click" , function(){
+        db.collection("cardHolders").doc(code.value).set({
           Name: name.value,
           Code: code.value,
           a: a1.value,
@@ -85,15 +139,10 @@
       })
     
       
-        fileSelector.addEventListener('change', async(event) => {
-          const file = event.target.files[0];
-          const storageRef = firebase.storage().ref();
-          const fileRef = storageRef.child(file.name);
-          console.log("Uploaded File Url" , fileUrl);
-          await fileRef.put(file)
-          fileUrl = await fileRef.getDownloadURL();
-        });
+      
     </script>
+
+
   <script src="login.js"></script>
 
 </body>

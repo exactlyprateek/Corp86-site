@@ -101,15 +101,7 @@
 
     <div class="site-section">
       <div class="container">
-        <div class='row' id='row'>
-
-        </div>
-
-
-
-
-
-        <div class="row">
+        <div class="row" id='row'>
 
           <div class="col-md-6 col-lg-4 mb-5">
             <div class="media-image">
@@ -345,9 +337,7 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
-    var notebooks = db.collection("notebooks");
-
-    const items = [];
+    var notebooks = db.collection("notebook");
     notebooks.orderBy('Code', 'asc').get().then(function(querySnapshot) {
     querySnapshot.docs.map(function(doc) {
         console.log(doc.id, " => ", doc.data());
@@ -356,80 +346,70 @@
         product.className = 'col-md-6 col-lg-4 mb-5';
         product.id = 'product';
         product.innerHTML = `<div class="media-image">
-              <a href="${ myData.a }">
+              <a href="product.html?item=notebook?=${ myData.Code }">
                 <img src="${ myData.imgSrc }" alt="Image" class="img-fluid">
               </a>
               <div class="media-image-body">
                 <h2 class="font-secondary text-uppercase">${ myData.Name }</h2>
                 <p>Product Code: ${ myData.Code }</p>
-                <p><a href="${ myData.a2 }" class="btn btn-primary text-white px-4"><span class="caption">Learn More</span></a></p>
+                <p><a href="product.html?item=notebook?=${ myData.Code }" class="btn btn-primary text-white px-4"><span class="caption">Learn More</span></a></p>
               </div>
             </div>`;
         document.getElementById('row').appendChild(product);
-
-        // var media = document.createElement('div');
-        // media.className = 'media-image';
-        // media.id = 'media';
-        // document.getElementById('row').appendChild(media);
-
-        // var a1 = document.createElement('a');
-        // a1.href = myData.a;
-        // a1.id = 'a1';
-        // document.getElementById('media').appendChild(a1);
-
-        // var mediaBody = document.createElement('div');
-        // mediaBody.className = 'media-image-body';
-        // mediaBody.id = 'mediaBody';
-        // document.getElementById('media').appendChild(mediaBody);
-
-        // var myImg = document.createElement('img');
-        // myImg.className = 'img-fluid';
-        // myImg.src = myData.imgSrc;
-        // document.getElementById('a1').appendChild(myImg);
-
-        
-
-        // var productName = document.createElement('h2');
-        // productName.className = 'font-secondary text-uppercase';
-        // productName.innerHTML = myData.Name;
-        // document.getElementById("mediaBody").appendChild(productName);
-
-        // var productCode = document.createElement('p');
-        // productCode.innerHTML = "Product Code : " + myData.Code;
-        // document.getElementById("mediaBody").appendChild(productCode);
-
-        // var learnMore = document.createElement('p');
-        // learnMore.id = 'p1';
-        // learnMore.innerHTML=`<a href=" ${ myData.a2 } " class="btn btn-primary text-white px-4"><span class="caption">Learn More</span></a>`;
-        // document.getElementById('mediaBody').appendChild(learnMore);
-
-        // var learnMoreA = document.createElement('a');
-        // learnMoreA.href = myData.a2;
-        // learnMoreA.className = 'btn btn-primary text-white px-4';
-        // learnMoreA.id = 'learnMoreA';
-        // learnMoreA.innerHTML = '<span class="caption">Learn More</span>'
-        // document.getElementById('p1').appendChild(learnMoreA);
-
-        // var spanLearnMore = document.createElement('span');
-        // spanLearnMore.className = 'caption';
-        // spanLearnMore.innerHTML = 'Learn More';
-        // document.getElementById('learnMoreA').appendChild(spanLearnMore);
-
-
-
-        
-        
-
-        
-
-        items.push(doc.data());
-
       });
     });
-
-   
-
   </script>
 
   </body>
 </html>
+
+<!-- >
+
+// var media = document.createElement('div');
+// media.className = 'media-image';
+// media.id = 'media';
+// document.getElementById('row').appendChild(media);
+
+// var a1 = document.createElement('a');
+// a1.href = myData.a;
+// a1.id = 'a1';
+// document.getElementById('media').appendChild(a1);
+
+// var mediaBody = document.createElement('div');
+// mediaBody.className = 'media-image-body';
+// mediaBody.id = 'mediaBody';
+// document.getElementById('media').appendChild(mediaBody);
+
+// var myImg = document.createElement('img');
+// myImg.className = 'img-fluid';
+// myImg.src = myData.imgSrc;
+// document.getElementById('a1').appendChild(myImg);
+
+
+
+// var productName = document.createElement('h2');
+// productName.className = 'font-secondary text-uppercase';
+// productName.innerHTML = myData.Name;
+// document.getElementById("mediaBody").appendChild(productName);
+
+// var productCode = document.createElement('p');
+// productCode.innerHTML = "Product Code : " + myData.Code;
+// document.getElementById("mediaBody").appendChild(productCode);
+
+// var learnMore = document.createElement('p');
+// learnMore.id = 'p1';
+// learnMore.innerHTML=`<a href=" ${ myData.a2 } " class="btn btn-primary text-white px-4"><span class="caption">Learn More</span></a>`;
+// document.getElementById('mediaBody').appendChild(learnMore);
+
+// var learnMoreA = document.createElement('a');
+// learnMoreA.href = myData.a2;
+// learnMoreA.className = 'btn btn-primary text-white px-4';
+// learnMoreA.id = 'learnMoreA';
+// learnMoreA.innerHTML = '<span class="caption">Learn More</span>'
+// document.getElementById('p1').appendChild(learnMoreA);
+
+// var spanLearnMore = document.createElement('span');
+// spanLearnMore.className = 'caption';
+// spanLearnMore.innerHTML = 'Learn More';
+// document.getElementById('learnMoreA').appendChild(spanLearnMore);
+<-->
