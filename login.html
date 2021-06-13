@@ -22,19 +22,23 @@
     <br><br><br><br>
             <input type="text" placeholder="Product Code" id="code" /><br><br>
             <input type="text" placeholder="Product Name" id="name" /><br><br>
-            <!-- <input type="text" placeholder="a1" id="a1" /><br><br> -->
+            <input type="text" placeholder="Description" id="desc" /><br><br>
             <!-- <input type="text" placeholder="a2" id="a2" /><br><br> -->
             <!-- <input type="text" placeholder="imgSrc" id="imgSrc" /><br><br> -->
             <input type="file" id='fileButton'/><br><br>
             <button id='addNotebooks' >Add to Notebooks</button><br>
             <button id='addPens' >Add to Pens</button><br>
             <button id='addCardHolders' >Add to Card Holders</button><br>
+            <button id='addMobileHolders' >Add to Mobile Holders</button><br>
+            <button id='addPlanner' >Add to Planners</button><br>
+            <button id='addCoasters' >Add to Coasters</button><br>
+            <button id='addKeychains' >Add to Keychains</button><br>
+            <button id='addOthers' >Add to Other Products</button><br>
 
             <br><br><br><br><br>
+            
     <button onclick="logout()">Logout</button>
   </div>
-
-
 
   <!-- <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script> -->
   <script>
@@ -51,12 +55,22 @@
     const db = firebase.firestore();
     const code = document.getElementById('code');
     const name = document.getElementById('name');
-    const a1 = document.getElementById('a1');
-    const a2 = document.getElementById('a2');
-    const imgSrc = document.getElementById('imgSrc');
-    const addNotebooks = document.getElementById('addNotebooks');
+    const desc = document.getElementById('desc');
+    // const a1 = document.getElementById('a1');
+    // const a2 = document.getElementById('a2');
+    // const imgSrc = document.getElementById('imgSrc');
     const fileSelector = document.getElementById('fileButton');
     var fileUrl;
+
+    const addNotebooks = document.getElementById('addNotebooks');
+    const addPens = document.getElementById('addPens');
+    const addCardHolders = document.getElementById('addCardHolders');
+    const addMobileHolders = document.getElementById('addMobileHolders');
+    const addPlanner = document.getElementById('addPlanner');
+    const addCoasters = document.getElementById('addCoasters');
+    const addKeychains = document.getElementById('addKeychains');
+    const addOthers = document.getElementById('addOthers');
+    
 
     fileSelector.addEventListener('change', async(event) => {
         const file = event.target.files[0];
@@ -71,6 +85,7 @@
         db.collection("notebook").doc(code.value).set({
           Name: name.value,
           Code: code.value,
+          Description: desc.value,
           // a: a1.value,
           // a2: a2.value,
           imgSrc: fileUrl
@@ -81,6 +96,7 @@
             alert("Document successfully written!");
             name.value = '';
             code.value = '';
+            desc.value = '';
             // a1.value = '';
             // a2.value = '';
             fileSelector.value = '';
@@ -95,8 +111,9 @@
         db.collection("pens").doc(code.value).set({
           Name: name.value,
           Code: code.value,
-          a: a1.value,
-          a2: a2.value,
+          Description: desc.value,
+          // a: a1.value,
+          // a2: a2.value,
           imgSrc: fileUrl
         })
         .then(() => {
@@ -105,8 +122,9 @@
             alert("Document successfully written!");
             name.value = '';
             code.value = '';
-            a1.value = '';
-            a2.value = '';
+            desc.value = '';
+            // a1.value = '';
+            // a2.value = '';
             fileSelector.value = '';
 
         })
@@ -114,12 +132,14 @@
             console.error("Error writing document: ", error);
         });
       })
+
       addCardHolders.addEventListener("click" , function(){
-        db.collection("cardHolders").doc(code.value).set({
+        db.collection("cholder").doc(code.value).set({
           Name: name.value,
           Code: code.value,
-          a: a1.value,
-          a2: a2.value,
+          Description: desc.value,
+          // a: a1.value,
+          // a2: a2.value,
           imgSrc: fileUrl
         })
         .then(() => {
@@ -128,8 +148,139 @@
             alert("Document successfully written!");
             name.value = '';
             code.value = '';
-            a1.value = '';
-            a2.value = '';
+            desc.value = '';
+            // a1.value = '';
+            // a2.value = '';
+            fileSelector.value = '';
+
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+      })
+
+      addMobileHolders.addEventListener("click" , function(){
+        db.collection("mholder").doc(code.value).set({
+          Name: name.value,
+          Code: code.value,
+          Description: desc.value,
+          // a: a1.value,
+          // a2: a2.value,
+          imgSrc: fileUrl
+        })
+        .then(() => {
+            console.log("Document successfully written!");
+            console.log(fileUrl);
+            alert("Document successfully written!");
+            name.value = '';
+            code.value = '';
+            desc.value = '';
+            // a1.value = '';
+            // a2.value = '';
+            fileSelector.value = '';
+
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+      })
+
+      addPlanner.addEventListener("click" , function(){
+        db.collection("planner").doc(code.value).set({
+          Name: name.value,
+          Code: code.value,
+          Description: desc.value,
+          // a: a1.value,
+          // a2: a2.value,
+          imgSrc: fileUrl
+        })
+        .then(() => {
+            console.log("Document successfully written!");
+            console.log(fileUrl);
+            alert("Document successfully written!");
+            name.value = '';
+            code.value = '';
+            desc.value = '';
+            // a1.value = '';
+            // a2.value = '';
+            fileSelector.value = '';
+
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+      })
+
+      addCoasters.addEventListener("click" , function(){
+        db.collection("coaster").doc(code.value).set({
+          Name: name.value,
+          Code: code.value,
+          Description: desc.value,
+          // a: a1.value,
+          // a2: a2.value,
+          imgSrc: fileUrl
+        })
+        .then(() => {
+            console.log("Document successfully written!");
+            console.log(fileUrl);
+            alert("Document successfully written!");
+            name.value = '';
+            code.value = '';
+            desc.value = '';
+            // a1.value = '';
+            // a2.value = '';
+            fileSelector.value = '';
+
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+      })
+
+      addKeychains.addEventListener("click" , function(){
+        db.collection("keychains").doc(code.value).set({
+          Name: name.value,
+          Code: code.value,
+          Description: desc.value,
+          // a: a1.value,
+          // a2: a2.value,
+          imgSrc: fileUrl
+        })
+        .then(() => {
+            console.log("Document successfully written!");
+            console.log(fileUrl);
+            alert("Document successfully written!");
+            name.value = '';
+            code.value = '';
+            desc.value = '';
+            // a1.value = '';
+            // a2.value = '';
+            fileSelector.value = '';
+
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+      })
+
+      addOthers.addEventListener("click" , function(){
+        db.collection("others").doc(code.value).set({
+          Name: name.value,
+          Code: code.value,
+          Description: desc.value,
+          // a: a1.value,
+          // a2: a2.value,
+          imgSrc: fileUrl
+        })
+        .then(() => {
+            console.log("Document successfully written!");
+            console.log(fileUrl);
+            alert("Document successfully written!");
+            name.value = '';
+            code.value = '';
+            desc.value = '';
+            // a1.value = '';
+            // a2.value = '';
             fileSelector.value = '';
 
         })

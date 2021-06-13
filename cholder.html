@@ -365,8 +365,8 @@
     // Initialize Firebase
     firebase.initializeApp(firebaseConfig);
     const db = firebase.firestore();
-    var cardHolders = db.collection("cardHolders");
-    cardHolders.orderBy('Code', 'asc').get().then(function(querySnapshot) {
+    var notebooks = db.collection("cholder");
+    notebooks.orderBy('Code', 'asc').get().then(function(querySnapshot) {
     querySnapshot.docs.map(function(doc) {
         console.log(doc.id, " => ", doc.data());
         var myData = doc.data();
@@ -374,13 +374,13 @@
         product.className = 'col-md-6 col-lg-4 mb-5';
         product.id = 'product';
         product.innerHTML = `<div class="media-image">
-              <a href="${ myData.a }">
+              <a href="product.html?item=cholder?=${ myData.Code }">
                 <img src="${ myData.imgSrc }" alt="Image" class="img-fluid">
               </a>
               <div class="media-image-body">
                 <h2 class="font-secondary text-uppercase">${ myData.Name }</h2>
                 <p>Product Code: ${ myData.Code }</p>
-                <p><a href="${ myData.a2 }" class="btn btn-primary text-white px-4"><span class="caption">Learn More</span></a></p>
+                <p><a href="product.html?item=cholder?=${ myData.Code }" class="btn btn-primary text-white px-4"><span class="caption">Learn More</span></a></p>
               </div>
             </div>`;
         document.getElementById('row').appendChild(product);

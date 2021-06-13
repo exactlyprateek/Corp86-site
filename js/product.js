@@ -530,7 +530,7 @@ var firebaseConfig = {
         console.log("Document data:", doc.data());
         image.setAttribute('src',myData.imgSrc);
         code.innerHTML = myData.Code
-        desc.innerHTML="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum dignissimos sapiente culpa dolores similique. Quidem quam veniam rerum unde, aperiam labore quis suscipit, nostrum obcaecati animi officia officiis. Doloremque, nihil."
+        desc.innerHTML= myData.Description
         BackButton.setAttribute('href',`${ arr[0] }.html`)
     } else {
         // doc.data() will be undefined in this case
