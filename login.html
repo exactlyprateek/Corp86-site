@@ -1,0 +1,300 @@
+<html>
+<head>
+  <title>Firebase Login</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="login.css" />
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-storage.js"></script>
+</head>
+<body>
+
+  <div id="login_div" class="main-div">
+    <h3>Login to Admin</h3>
+    <input type="email" placeholder="Email..." id="email_field" />
+    <input type="password" placeholder="Password..." id="password_field" />
+
+    <button onclick="login()">Login to Account</button>
+  </div>
+
+  <div id="user_div" class="loggedin-div">
+    <br><br><br><br>
+            <input type="text" placeholder="Product Code" id="code" /><br><br>
+            <input type="text" placeholder="Product Name" id="name" /><br><br>
+            <input type="text" placeholder="Description" id="desc" /><br><br>
+            <!-- <input type="text" placeholder="a2" id="a2" /><br><br> -->
+            <!-- <input type="text" placeholder="imgSrc" id="imgSrc" /><br><br> -->
+            <input type="file" id='fileButton'/><br><br>
+            <button id='addNotebooks' >Add to Notebooks</button><br>
+            <button id='addPens' >Add to Pens</button><br>
+            <button id='addCardHolders' >Add to Card Holders</button><br>
+            <button id='addMobileHolders' >Add to Mobile Holders</button><br>
+            <button id='addPlanner' >Add to Planners</button><br>
+            <button id='addCoasters' >Add to Coasters</button><br>
+            <button id='addKeychains' >Add to Keychains</button><br>
+            <button id='addOthers' >Add to Other Products</button><br>
+
+            <br><br><br><br><br>
+            
+    <button onclick="logout()">Logout</button>
+  </div>
+
+  <!-- <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script> -->
+  <script>
+    var config = {
+      apiKey: "AIzaSyAby9DxUE27mhnpodFtoObx0u0488GEeQY",
+      authDomain: "corp-391f7.firebaseapp.com",
+      projectId: "corp-391f7",
+      storageBucket: "corp-391f7.appspot.com",
+      messagingSenderId: "452489581021",
+      appId: "1:452489581021:web:49e1e5b246486077b16634",
+      measurementId: "G-KT27TYPPZJ"
+    };
+    firebase.initializeApp(config);
+    const db = firebase.firestore();
+    const code = document.getElementById('code');
+    const name = document.getElementById('name');
+    const desc = document.getElementById('desc');
+    // const a1 = document.getElementById('a1');
+    // const a2 = document.getElementById('a2');
+    // const imgSrc = document.getElementById('imgSrc');
+    const fileSelector = document.getElementById('fileButton');
+    var fileUrl;
+
+    const addNotebooks = document.getElementById('addNotebooks');
+    const addPens = document.getElementById('addPens');
+    const addCardHolders = document.getElementById('addCardHolders');
+    const addMobileHolders = document.getElementById('addMobileHolders');
+    const addPlanner = document.getElementById('addPlanner');
+    const addCoasters = document.getElementById('addCoasters');
+    const addKeychains = document.getElementById('addKeychains');
+    const addOthers = document.getElementById('addOthers');
+    
+
+    fileSelector.addEventListener('change', async(event) => {
+        const file = event.target.files[0];
+        const storageRef = firebase.storage().ref();
+        const fileRef = storageRef.child(file.name);
+        console.log("Uploaded File Url" , fileUrl);
+        await fileRef.put(file)
+        fileUrl = await fileRef.getDownloadURL();
+      });
+
+    addNotebooks.addEventListener("click" , function(){
+        db.collection("notebook").doc(code.value).set({
+          Name: name.value,
+          Code: code.value,
+          Description: desc.value,
+          // a: a1.value,
+          // a2: a2.value,
+          imgSrc: fileUrl
+        })
+        .then(() => {
+            console.log("Document successfully written!");
+            console.log(fileUrl);
+            alert("Document successfully written!");
+            name.value = '';
+            code.value = '';
+            desc.value = '';
+            // a1.value = '';
+            // a2.value = '';
+            fileSelector.value = '';
+
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+      })
+
+      addPens.addEventListener("click" , function(){
+        db.collection("pens").doc(code.value).set({
+          Name: name.value,
+          Code: code.value,
+          Description: desc.value,
+          // a: a1.value,
+          // a2: a2.value,
+          imgSrc: fileUrl
+        })
+        .then(() => {
+            console.log("Document successfully written!");
+            console.log(fileUrl);
+            alert("Document successfully written!");
+            name.value = '';
+            code.value = '';
+            desc.value = '';
+            // a1.value = '';
+            // a2.value = '';
+            fileSelector.value = '';
+
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+      })
+
+      addCardHolders.addEventListener("click" , function(){
+        db.collection("cholder").doc(code.value).set({
+          Name: name.value,
+          Code: code.value,
+          Description: desc.value,
+          // a: a1.value,
+          // a2: a2.value,
+          imgSrc: fileUrl
+        })
+        .then(() => {
+            console.log("Document successfully written!");
+            console.log(fileUrl);
+            alert("Document successfully written!");
+            name.value = '';
+            code.value = '';
+            desc.value = '';
+            // a1.value = '';
+            // a2.value = '';
+            fileSelector.value = '';
+
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+      })
+
+      addMobileHolders.addEventListener("click" , function(){
+        db.collection("mholder").doc(code.value).set({
+          Name: name.value,
+          Code: code.value,
+          Description: desc.value,
+          // a: a1.value,
+          // a2: a2.value,
+          imgSrc: fileUrl
+        })
+        .then(() => {
+            console.log("Document successfully written!");
+            console.log(fileUrl);
+            alert("Document successfully written!");
+            name.value = '';
+            code.value = '';
+            desc.value = '';
+            // a1.value = '';
+            // a2.value = '';
+            fileSelector.value = '';
+
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+      })
+
+      addPlanner.addEventListener("click" , function(){
+        db.collection("planner").doc(code.value).set({
+          Name: name.value,
+          Code: code.value,
+          Description: desc.value,
+          // a: a1.value,
+          // a2: a2.value,
+          imgSrc: fileUrl
+        })
+        .then(() => {
+            console.log("Document successfully written!");
+            console.log(fileUrl);
+            alert("Document successfully written!");
+            name.value = '';
+            code.value = '';
+            desc.value = '';
+            // a1.value = '';
+            // a2.value = '';
+            fileSelector.value = '';
+
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+      })
+
+      addCoasters.addEventListener("click" , function(){
+        db.collection("coaster").doc(code.value).set({
+          Name: name.value,
+          Code: code.value,
+          Description: desc.value,
+          // a: a1.value,
+          // a2: a2.value,
+          imgSrc: fileUrl
+        })
+        .then(() => {
+            console.log("Document successfully written!");
+            console.log(fileUrl);
+            alert("Document successfully written!");
+            name.value = '';
+            code.value = '';
+            desc.value = '';
+            // a1.value = '';
+            // a2.value = '';
+            fileSelector.value = '';
+
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+      })
+
+      addKeychains.addEventListener("click" , function(){
+        db.collection("keychains").doc(code.value).set({
+          Name: name.value,
+          Code: code.value,
+          Description: desc.value,
+          // a: a1.value,
+          // a2: a2.value,
+          imgSrc: fileUrl
+        })
+        .then(() => {
+            console.log("Document successfully written!");
+            console.log(fileUrl);
+            alert("Document successfully written!");
+            name.value = '';
+            code.value = '';
+            desc.value = '';
+            // a1.value = '';
+            // a2.value = '';
+            fileSelector.value = '';
+
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+      })
+
+      addOthers.addEventListener("click" , function(){
+        db.collection("others").doc(code.value).set({
+          Name: name.value,
+          Code: code.value,
+          Description: desc.value,
+          // a: a1.value,
+          // a2: a2.value,
+          imgSrc: fileUrl
+        })
+        .then(() => {
+            console.log("Document successfully written!");
+            console.log(fileUrl);
+            alert("Document successfully written!");
+            name.value = '';
+            code.value = '';
+            desc.value = '';
+            // a1.value = '';
+            // a2.value = '';
+            fileSelector.value = '';
+
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+      })
+    
+      
+      
+    </script>
+
+
+  <script src="login.js"></script>
+
+</body>
+</html>

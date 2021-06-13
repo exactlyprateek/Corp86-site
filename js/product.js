@@ -8,10 +8,14 @@ let BackButton = document.getElementById("go-back")
 let params = window.location.search
 
 let parsedParams = new URLSearchParams(params)
-let productToRender = parsedParams.get('item') 
+let productToRender = parsedParams.get('item')
+
+let arr = productToRender.split('?=')
 
 
 console.log(productToRender)
+console.log(arr[1])
+
 if(productToRender == 'p1'){ 
     image.setAttribute("src", "images/prod/p1.jpg");
     code.innerHTML = 211
@@ -506,4 +510,35 @@ if(productToRender == 'ph1-1'){
     desc.innerHTML="Lorem, ipsum dolor sit amet consectetur adipisicing elit. Laborum dignissimos sapiente culpa dolores similique. Quidem quam veniam rerum unde, aperiam labore quis suscipit, nostrum obcaecati animi officia officiis. Doloremque, nihil."
     BackButton.setAttribute('href','mholder.html')
 }
+
+var firebaseConfig = {
+    apiKey: "AIzaSyAby9DxUE27mhnpodFtoObx0u0488GEeQY",
+    authDomain: "corp-391f7.firebaseapp.com",
+    projectId: "corp-391f7",
+    storageBucket: "corp-391f7.appspot.com",
+    messagingSenderId: "452489581021",
+    appId: "1:452489581021:web:49e1e5b246486077b16634",
+    measurementId: "G-KT27TYPPZJ"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  const db = firebase.firestore();
+  var docRef = db.collection(arr[0]).doc(arr[1]);
+  docRef.get().then((doc) => {
+    if (doc.exists) {
+        var myData = doc.data();
+        console.log("Document data:", doc.data());
+        image.setAttribute('src',myData.imgSrc);
+        code.innerHTML = myData.Code
+        desc.innerHTML= myData.Description
+        BackButton.setAttribute('href',`${ arr[0] }.html`)
+    } else {
+        // doc.data() will be undefined in this case
+        console.log("No such document!");
+    }
+}).catch((error) => {
+    console.log("Error getting document:", error);
+});
+
+
 
