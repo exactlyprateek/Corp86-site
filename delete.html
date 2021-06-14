@@ -1,0 +1,125 @@
+<html>
+<head>
+  <title>Firebase Login2</title>
+  <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
+  <link rel="stylesheet" href="delete.css" />
+
+  <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-firestore.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-auth.js"></script>
+</head>
+<body>
+
+  <div id="login_div2" class="main-div2">
+    <h3>Firebase Web login Example</h3>
+    <input type="email" placeholder="Email..." id="email_field2" />
+    <input type="password" placeholder="Password..." id="password_field2" />
+
+    <button onclick="login()">Login to Account</button>
+  </div>
+
+  <div id="user_div2" class="loggedin-div2">
+    
+    <table id='deleteTable'>
+      <tr>
+        <th>Product Image : </th>
+        <th>Product Name : </th>
+        <th>Product Code : </th>
+        <th>Delete Product : </th>
+      </tr>
+
+    </table>
+
+
+
+    <button onclick="logout()">Logout</button>
+  </div>
+
+
+
+  
+  
+  <script>
+    var config = {
+      apiKey: "AIzaSyAby9DxUE27mhnpodFtoObx0u0488GEeQY",
+      authDomain: "corp-391f7.firebaseapp.com",
+      projectId: "corp-391f7",
+      storageBucket: "corp-391f7.appspot.com",
+      messagingSenderId: "452489581021",
+      appId: "1:452489581021:web:49e1e5b246486077b16634",
+      measurementId: "G-KT27TYPPZJ"
+    };
+    
+    firebase.initializeApp(config);
+    const db = firebase.firestore();
+
+    db.collection("notebook").orderBy('Code', 'asc').get().then(function(querySnapshot) {
+    querySnapshot.docs.map(function(doc) {
+        console.log(doc.id, " => ", doc.data());
+        var myData = doc.data();
+        var product = document.createElement('tr');
+        // product.className = 'col-md-6 col-lg-4 mb-5';
+        // product.id = 'product';
+        product.innerHTML = `<td><img src="${ myData.imgSrc }" alt="Image" class="img-fluid1"></td>
+                            <td>${ myData.Name } </td>
+                            <td>${ myData.Code }</td>
+                            <td>
+                            <button id='deleteNotebook${myData.Code}'>Delete </button>`
+                            ;
+        document.getElementById('deleteTable').appendChild(product);
+
+        const deleteNotebook = document.getElementById('deleteNotebook' + myData.Code);
+        console.log('deleteNotebook' + myData.Code);
+        deleteNotebook.addEventListener('click' , function deleteNotebook(){
+                                            let answer = confirm("Are you sure you want to delete this product?");
+                                            if(answer){
+                                              db.collection("notebook").doc(myData.Code).delete().then(() => {
+                                              console.log("Document successfully deleted!"+ " " + myData.Code + " "+ myData.Name);
+                                                }).catch((error) => {
+                                                    console.error("Error removing document: ", error);
+                                                });
+                                            }
+                                        })
+      });
+    });
+
+    db.collection("pens").orderBy('Code', 'asc').get().then(function(querySnapshot) {
+    querySnapshot.docs.map(function(doc) {
+        console.log(doc.id, " => ", doc.data());
+        var myData = doc.data();
+        var product = document.createElement('tr');
+        // product.className = 'col-md-6 col-lg-4 mb-5';
+        // product.id = 'product';
+        product.innerHTML = `<td><img src="${ myData.imgSrc }" alt="Image" class="img-fluid1"></td>
+                            <td>${ myData.Name } </td>
+                            <td>${ myData.Code }</td>
+                            <td>
+                            <button id='deletePens${myData.Code}'>Delete </button>`
+                            ;
+        document.getElementById('deleteTable').appendChild(product);
+
+        const deletePens = document.getElementById('deletePens' + myData.Code);
+        console.log('deletePens' + myData.Code);
+        deletePens.addEventListener('click' , function deletePens(){
+                                            let answer = confirm("Are you sure you want to delete this product?");
+                                            if(answer){
+                                            db.collection("pens").doc(myData.Code).delete().then(() => {
+                                              console.log("Document successfully deleted!" + " "+ myData.Code + " " + myData.Name);
+                                            }).catch((error) => {
+                                                console.error("Error removing document: ", error);
+                                            });
+
+                                        }
+                                          })
+      });
+    });
+
+    
+    
+    </script>
+
+  <script src="delete.js"></script>
+
+
+</body>
+</html>
