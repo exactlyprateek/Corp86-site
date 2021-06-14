@@ -87,3 +87,13 @@ tr:nth-child(even) {
 .img-fluid1{
   width:10%;
 }
+
+.delete_redirect{
+  display:flex;
+  justify-content: flex-end;
+}
+
+.margin{
+  margin-right:6em;
+  margin-top:3em;
+}

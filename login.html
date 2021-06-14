@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Firebase Login</title>
+  <title>Add New Products</title>
   <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
   <link rel="stylesheet" href="login.css" />
   <script src="https://www.gstatic.com/firebasejs/8.6.5/firebase-app.js"></script>
@@ -10,8 +10,14 @@
 </head>
 <body>
 
+  <div class='delete_redirect'>
+    <div class='margin'>
+      <a href='delete.html'><button>Delete Existing Products</button></a>
+    </div>
+  </div>
+
   <div id="login_div" class="main-div">
-    <h3>Login to Admin</h3>
+    <h3>Login for Admin</h3>
     <input type="email" placeholder="Email..." id="email_field" />
     <input type="password" placeholder="Password..." id="password_field" />
 
@@ -20,28 +26,107 @@
 
   <div id="user_div" class="loggedin-div">
     <br><br><br><br>
-            <input type="text" placeholder="Product Code" id="code" /><br><br>
+            <input type="number" placeholder="Product Code" id="code" /><br><br>
             <input type="text" placeholder="Product Name" id="name" /><br><br>
-            <input type="text" placeholder="Description" id="desc" /><br><br>
+            <!-- <input type="text" placeholder="Description" id="desc" /><br><br> -->
+            <textarea type="text" name="message" rows="10" placeholder="Description" id="desc" ></textarea><br><br>
             <!-- <input type="text" placeholder="a2" id="a2" /><br><br> -->
             <!-- <input type="text" placeholder="imgSrc" id="imgSrc" /><br><br> -->
             <input type="file" id='fileButton'/><br><br>
-            <button id='addNotebooks' >Add to Notebooks</button><br>
+
+            <label for="cars">Choose the collection to add to:</label><br><br>
+              <select name="cars" id="cars">
+                <option value="notebook">Notebooks</option>
+                <option value="pens">Pens</option>
+                <option value="cholder">Card Holders</option>
+                <option value="mholder">Mobile Holders</option>
+                <option value="planner">Planners and Organizers</option>
+                <option value="coaster">Coasters</option>
+                <option value="keychains">Keychains</option>
+                <option value="others">Others Products</option>
+              </select>
+              <br><br><br><br>
+
+              <button id='addToList'>Add Product</button>
+
+
+
+            <!-- <button id='addNotebooks' >Add to Notebooks</button><br>
             <button id='addPens' >Add to Pens</button><br>
             <button id='addCardHolders' >Add to Card Holders</button><br>
             <button id='addMobileHolders' >Add to Mobile Holders</button><br>
             <button id='addPlanner' >Add to Planners</button><br>
             <button id='addCoasters' >Add to Coasters</button><br>
             <button id='addKeychains' >Add to Keychains</button><br>
-            <button id='addOthers' >Add to Other Products</button><br>
+            <button id='addOthers' >Add to Other Products</button><br> -->
 
             <br><br><br><br><br>
             
     <button onclick="logout()">Logout</button>
   </div>
 
-  <!-- <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script> -->
   <script>
+    var config = {
+      apiKey: "AIzaSyAby9DxUE27mhnpodFtoObx0u0488GEeQY",
+      authDomain: "corp-391f7.firebaseapp.com",
+      projectId: "corp-391f7",
+      storageBucket: "corp-391f7.appspot.com",
+      messagingSenderId: "452489581021",
+      appId: "1:452489581021:web:49e1e5b246486077b16634",
+      measurementId: "G-KT27TYPPZJ"
+    };
+    firebase.initializeApp(config);
+    const db = firebase.firestore();
+
+    const toAdd = document.getElementById('cars');
+    const bttn = document.getElementById('addToList');
+    const code = document.getElementById('code');
+    const name = document.getElementById('name');
+    const desc = document.getElementById('desc');
+    const fileSelector = document.getElementById('fileButton');
+    var fileUrl;
+
+    fileSelector.addEventListener('change', async(event) => {
+        const file = event.target.files[0];
+        const storageRef = firebase.storage().ref();
+        const fileRef = storageRef.child(file.name);
+        console.log("Uploaded File Url" , fileUrl);
+        await fileRef.put(file)
+        fileUrl = await fileRef.getDownloadURL();
+      });
+
+
+    bttn.addEventListener('click' , function(){
+      db.collection(toAdd.options[toAdd.selectedIndex].value).doc(code.value).set({
+          Name: name.value,
+          Code: code.value,
+          Description: desc.value,
+          // a: a1.value,
+          // a2: a2.value,
+          imgSrc: fileUrl
+        })
+        .then(() => {
+            console.log("Document successfully written!");
+            console.log(fileUrl);
+            alert("Document successfully written!");
+            name.value = '';
+            code.value = '';
+            desc.value = '';
+            // a1.value = '';
+            // a2.value = '';
+            fileSelector.value = '';
+
+        })
+        .catch((error) => {
+            console.error("Error writing document: ", error);
+        });
+      })
+
+
+  </script>
+  
+  <!-- <script src="https://www.gstatic.com/firebasejs/4.8.1/firebase.js"></script> -->
+  <!-- <script>
     var config = {
       apiKey: "AIzaSyAby9DxUE27mhnpodFtoObx0u0488GEeQY",
       authDomain: "corp-391f7.firebaseapp.com",
@@ -292,7 +377,7 @@
       
       
     </script>
-
+ -->
 
   <script src="login.js"></script>
 

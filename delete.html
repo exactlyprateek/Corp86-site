@@ -1,6 +1,6 @@
 <html>
 <head>
-  <title>Firebase Login2</title>
+  <title>Delete Products</title>
   <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
   <link rel="stylesheet" href="delete.css" />
 
@@ -10,8 +10,14 @@
 </head>
 <body>
 
+  <div class='delete_redirect'>
+    <div class='margin'>
+      <a href='login.html'><button>Add Products</button></a>
+    </div>
+  </div>
+
   <div id="login_div2" class="main-div2">
-    <h3>Firebase Web login Example</h3>
+    <h3>Login for Admin</h3>
     <input type="email" placeholder="Email..." id="email_field2" />
     <input type="password" placeholder="Password..." id="password_field2" />
 
@@ -104,6 +110,196 @@
                                             let answer = confirm("Are you sure you want to delete this product?");
                                             if(answer){
                                             db.collection("pens").doc(myData.Code).delete().then(() => {
+                                              console.log("Document successfully deleted!" + " "+ myData.Code + " " + myData.Name);
+                                            }).catch((error) => {
+                                                console.error("Error removing document: ", error);
+                                            });
+
+                                        }
+                                          })
+      });
+    });
+
+
+    db.collection("cholder").orderBy('Code', 'asc').get().then(function(querySnapshot) {
+    querySnapshot.docs.map(function(doc) {
+        console.log(doc.id, " => ", doc.data());
+        var myData = doc.data();
+        var product = document.createElement('tr');
+        // product.className = 'col-md-6 col-lg-4 mb-5';
+        // product.id = 'product';
+        product.innerHTML = `<td><img src="${ myData.imgSrc }" alt="Image" class="img-fluid1"></td>
+                            <td>${ myData.Name } </td>
+                            <td>${ myData.Code }</td>
+                            <td>
+                            <button id='deleteCholder${myData.Code}'>Delete</button>`
+                            ;
+        document.getElementById('deleteTable').appendChild(product);
+
+        const deleteCholder = document.getElementById('deleteCholder' + myData.Code);
+        console.log('deleteCholder' + myData.Code);
+        deleteCholder.addEventListener('click' , function deleteCholder(){
+                                            let answer = confirm("Are you sure you want to delete this product?");
+                                            if(answer){
+                                            db.collection("cholder").doc(myData.Code).delete().then(() => {
+                                              console.log("Document successfully deleted!" + " "+ myData.Code + " " + myData.Name);
+                                            }).catch((error) => {
+                                                console.error("Error removing document: ", error);
+                                            });
+
+                                        }
+                                          })
+      });
+    });
+
+
+    db.collection("mholder").orderBy('Code', 'asc').get().then(function(querySnapshot) {
+    querySnapshot.docs.map(function(doc) {
+        console.log(doc.id, " => ", doc.data());
+        var myData = doc.data();
+        var product = document.createElement('tr');
+        // product.className = 'col-md-6 col-lg-4 mb-5';
+        // product.id = 'product';
+        product.innerHTML = `<td><img src="${ myData.imgSrc }" alt="Image" class="img-fluid1"></td>
+                            <td>${ myData.Name } </td>
+                            <td>${ myData.Code }</td>
+                            <td>
+                            <button id='deleteMholder${myData.Code}'>Delete</button>`
+                            ;
+        document.getElementById('deleteTable').appendChild(product);
+
+        const deleteMholder = document.getElementById('deleteMholder' + myData.Code);
+        console.log('deleteMholder' + myData.Code);
+        deleteMholder.addEventListener('click' , function deleteMholder(){
+                                            let answer = confirm("Are you sure you want to delete this product?");
+                                            if(answer){
+                                            db.collection("mholder").doc(myData.Code).delete().then(() => {
+                                              console.log("Document successfully deleted!" + " "+ myData.Code + " " + myData.Name);
+                                            }).catch((error) => {
+                                                console.error("Error removing document: ", error);
+                                            });
+
+                                        }
+                                          })
+      });
+    });
+
+    db.collection("planner").orderBy('Code', 'asc').get().then(function(querySnapshot) {
+    querySnapshot.docs.map(function(doc) {
+        console.log(doc.id, " => ", doc.data());
+        var myData = doc.data();
+        var product = document.createElement('tr');
+        // product.className = 'col-md-6 col-lg-4 mb-5';
+        // product.id = 'product';
+        product.innerHTML = `<td><img src="${ myData.imgSrc }" alt="Image" class="img-fluid1"></td>
+                            <td>${ myData.Name } </td>
+                            <td>${ myData.Code }</td>
+                            <td>
+                            <button id='deletePlanner${myData.Code}'>Delete</button>`
+                            ;
+        document.getElementById('deleteTable').appendChild(product);
+
+        const deletePlanner = document.getElementById('deletePlanner' + myData.Code);
+        console.log('deletePlanner' + myData.Code);
+        deletePlanner.addEventListener('click' , function deletePlanner(){
+                                            let answer = confirm("Are you sure you want to delete this product?");
+                                            if(answer){
+                                            db.collection("planner").doc(myData.Code).delete().then(() => {
+                                              console.log("Document successfully deleted!" + " "+ myData.Code + " " + myData.Name);
+                                            }).catch((error) => {
+                                                console.error("Error removing document: ", error);
+                                            });
+
+                                        }
+                                          })
+      });
+    });
+
+
+    db.collection("coaster").orderBy('Code', 'asc').get().then(function(querySnapshot) {
+    querySnapshot.docs.map(function(doc) {
+        console.log(doc.id, " => ", doc.data());
+        var myData = doc.data();
+        var product = document.createElement('tr');
+        // product.className = 'col-md-6 col-lg-4 mb-5';
+        // product.id = 'product';
+        product.innerHTML = `<td><img src="${ myData.imgSrc }" alt="Image" class="img-fluid1"></td>
+                            <td>${ myData.Name } </td>
+                            <td>${ myData.Code }</td>
+                            <td>
+                            <button id='deleteCoaster${myData.Code}'>Delete</button>`
+                            ;
+        document.getElementById('deleteTable').appendChild(product);
+
+        const deleteCoaster = document.getElementById('deleteCoaster' + myData.Code);
+        console.log('deleteCoaster' + myData.Code);
+        deleteCoaster.addEventListener('click' , function deleteCoaster(){
+                                            let answer = confirm("Are you sure you want to delete this product?");
+                                            if(answer){
+                                            db.collection("coaster").doc(myData.Code).delete().then(() => {
+                                              console.log("Document successfully deleted!" + " "+ myData.Code + " " + myData.Name);
+                                            }).catch((error) => {
+                                                console.error("Error removing document: ", error);
+                                            });
+
+                                        }
+                                          })
+      });
+    });
+
+
+    db.collection("keychains").orderBy('Code', 'asc').get().then(function(querySnapshot) {
+    querySnapshot.docs.map(function(doc) {
+        console.log(doc.id, " => ", doc.data());
+        var myData = doc.data();
+        var product = document.createElement('tr');
+        // product.className = 'col-md-6 col-lg-4 mb-5';
+        // product.id = 'product';
+        product.innerHTML = `<td><img src="${ myData.imgSrc }" alt="Image" class="img-fluid1"></td>
+                            <td>${ myData.Name } </td>
+                            <td>${ myData.Code }</td>
+                            <td>
+                            <button id='deleteKeychains${myData.Code}'>Delete</button>`
+                            ;
+        document.getElementById('deleteTable').appendChild(product);
+
+        const deleteKeychains = document.getElementById('deleteKeychains' + myData.Code);
+        console.log('deleteKeychains' + myData.Code);
+        deleteKeychains.addEventListener('click' , function deleteKeychains(){
+                                            let answer = confirm("Are you sure you want to delete this product?");
+                                            if(answer){
+                                            db.collection("keychains").doc(myData.Code).delete().then(() => {
+                                              console.log("Document successfully deleted!" + " "+ myData.Code + " " + myData.Name);
+                                            }).catch((error) => {
+                                                console.error("Error removing document: ", error);
+                                            });
+
+                                        }
+                                          })
+      });
+    });
+
+    db.collection("others").orderBy('Code', 'asc').get().then(function(querySnapshot) {
+    querySnapshot.docs.map(function(doc) {
+        console.log(doc.id, " => ", doc.data());
+        var myData = doc.data();
+        var product = document.createElement('tr');
+        // product.className = 'col-md-6 col-lg-4 mb-5';
+        // product.id = 'product';
+        product.innerHTML = `<td><img src="${ myData.imgSrc }" alt="Image" class="img-fluid1"></td>
+                            <td>${ myData.Name } </td>
+                            <td>${ myData.Code }</td>
+                            <td>
+                            <button id='deleteOthers${myData.Code}'>Delete</button>`
+                            ;
+        document.getElementById('deleteTable').appendChild(product);
+
+        const deleteOthers = document.getElementById('deleteOthers' + myData.Code);
+        console.log('deleteOthers' + myData.Code);
+        deleteOthers.addEventListener('click' , function deleteOthers(){
+                                            let answer = confirm("Are you sure you want to delete this product?");
+                                            if(answer){
+                                            db.collection("others").doc(myData.Code).delete().then(() => {
                                               console.log("Document successfully deleted!" + " "+ myData.Code + " " + myData.Name);
                                             }).catch((error) => {
                                                 console.error("Error removing document: ", error);
