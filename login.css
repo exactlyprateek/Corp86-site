@@ -10,13 +10,29 @@ input, button {
   font-family: 'Nunito', sans-serif;
   font-weight: 700;
 }
+.margin{
+  margin-right:6em;
+  margin-top:3em;
+}
 
-.main-div, .loggedin-div {
+.main-div {
   width: 20%;
   margin: 0px auto;
   margin-top: 150px;
   padding: 20px;
   display: none;
+}
+.loggedin-div {
+  width: 20%;
+  margin: 0px auto;
+  margin-top: 30px;
+  padding: 20px;
+  display: none;
+}
+
+.loggedin-div input,select,textarea {
+  width:100%;
+  padding:5px;
 }
 
 .main-div input {
@@ -55,4 +71,9 @@ input, button {
   color: #5d8ffc;
   border: 1px solid #5d8ffc;
   cursor: pointer;
+}
+
+.delete_redirect{
+  display:flex;
+  justify-content: flex-end;
 }
