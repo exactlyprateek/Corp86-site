@@ -154,8 +154,8 @@ instance.designer().addElement('Front', 'Tshirt', null, [
 		name: '#FFFFFF',
 		color: '#ffffff',
 		image: {
-			url: 'https://cdn.pixabay.com/photo/2021/08/13/11/39/11-39-36-705_960_720.png',
-			// url: "/images/tshirt2.jpg",
+			// url: 'https://cdn.pixabay.com/photo/2021/08/13/11/39/11-39-36-705_960_720.png',
+			url: '/images/Tshirts/Tshirt_D6F201.png',
 			name: 'White tshirt'
 		},
 		active: true
@@ -370,8 +370,9 @@ instance.designer().addElement('Back', 'Tshirt', null, [
 		name: '#FFFFFF',
 		color: '#ffffff',
 		image: {
-			url: 'https://cdn.pixabay.com/photo/2021/08/13/11/39/11-39-36-705_960_720.png',
-			// url: "/images/tshirt2.jpg",
+			// url: 'https://cdn.pixabay.com/photo/2021/08/13/11/39/11-39-36-705_960_720.png',
+			url: '/images/Tshirts/Tshirt_D6F201.png',
+			
 			name: 'White tshirt'
 		},
 		active: true
@@ -587,8 +588,9 @@ instance.designer().addElement('Side', 'Tshirt', null, [
 		name: '#FFFFFF',
 		color: '#ffffff',
 		image: {
-			url: 'https://cdn.pixabay.com/photo/2021/08/17/05/21/05-21-01-273_1280.png',
-			// url: "/images/tshirt2.jpg",
+			// url: 'https://cdn.pixabay.com/photo/2021/08/17/05/21/05-21-01-273_1280.png',
+			url: '/images/Tshirts/side/Tshirt_D6F201.png',
+
 			name: 'White tshirt'
 		},
 		active: true
