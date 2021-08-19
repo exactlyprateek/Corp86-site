@@ -85,12 +85,7 @@ var options = {
 			collapsed: !!0,
 			collapsible: !!0,
 			items: [
-				{ name: 'Snap grid', icon: 'magnet', fallback: 'function' },
-				{ name: 'Ruler', icon: 'ruler-combined', fallback: 'function' },
-				{ name: 'Print', icon: 'print', fallback: 'function' },
-				{ name: 'Magnifying glass', icon: 'binoculars', fallback: 'function' },
-				{ name: 'Zoom', icon: 'search', fallback: 'popover' },
-				{ name: 'Download', icon: 'upload' }
+				
 				// { name: 'Reset', icon: 'sync-alt', fallback: 'function' }
 			]
 		},
@@ -148,13 +143,13 @@ instance.on('loaded', function() {
 	console.log(`Editor loaded`);
 });
 let imgArr = [];
-instance.designer().addView('Front', { height: 661, width: 783 }); // Access the subclasses from the main class
+instance.designer().addView('Front', { height: 861, width: 983 }); // Access the subclasses from the main class
 instance.designer().addElement('Front', 'Tshirt',  { height: 661, width: 783 }, [
 	{
 		name: '#FFFFFF',
 		color: '#ffffff',
 		image: {
-			url: 'https://cdn.pixabay.com/photo/2021/08/13/11/39/11-39-36-705_960_720.png',
+			url: 'https://cdn.pixabay.com/photo/2021/08/13/11/39/tshirt-6542903_960_720.png',
 			// url: '/images/Tshirts/Tshirt_D6F201.png',
 			name: 'White tshirt'
 		},
@@ -370,7 +365,7 @@ instance.designer().addElement('Back', 'Tshirt', null, [
 		name: '#FFFFFF',
 		color: '#ffffff',
 		image: {
-			url: 'https://cdn.pixabay.com/photo/2021/08/13/11/39/11-39-36-705_960_720.png',
+			url: 'https://cdn.pixabay.com/photo/2021/08/13/11/39/tshirt-6542903_960_720.png',
 			// url: '/images/Tshirts/Tshirt_D6F201.png',
 			
 			name: 'White tshirt'
