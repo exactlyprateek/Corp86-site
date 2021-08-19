@@ -149,7 +149,7 @@ instance.on('loaded', function() {
 });
 let imgArr = [];
 instance.designer().addView('Front', { height: 661, width: 783 }); // Access the subclasses from the main class
-instance.designer().addElement('Front', 'Tshirt', null, [
+instance.designer().addElement('Front', 'Tshirt',  { height: 661, width: 783 }, [
 	{
 		name: '#FFFFFF',
 		color: '#ffffff',
