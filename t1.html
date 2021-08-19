@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>tshirts | Products | Corp 86 | One stop destination for corporate gifts</title>
+  <title>tshirts | Products | VN International | One stop destination for corporate gifts</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -117,7 +117,86 @@
         </div>
       </div>
     </div>
+    <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+      Submit
+    </button> -->
 
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+      aria-hidden="true">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Submit Data</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+
+
+            <h5 class="input-group-text mb-3">Generated Image</h5>
+            <div class="container">
+              <div class="row">
+                <div class="col-6">
+
+                  <label>Front</label>
+                  <img id="modal-front" class="modal-image mb-3" alt="img" />
+                </div>
+
+
+                <div class="col-6">
+
+                  <label>Back</label>
+                  <img id="modal-back" class="modal-image mb-3" alt="img" />
+                </div>
+
+                <div class="col-6">
+
+
+
+
+                  <label>Side</label>
+                  <img id="modal-side" class="modal-image mb-3" alt="img" />
+                </div>
+
+              </div>
+            </div>
+
+
+            <!-- <div class="input-group mb-3">
+
+              <span class="input-group-text rounded-0 fs-6">Generated Color</span>
+              <input placeholder="Color" id="tshirt-color" type="text" class="form-control" />
+            </div> -->
+            <div class="input-group mb-3">
+
+              <span class="input-group-text rounded-0 fs-6">Name</span>
+              <input placeholder="Name" id="tshirt-name" type="text" class="form-control" />
+            </div>
+            <div class="input-group mb-3">
+
+              <span class="input-group-text rounded-0 fs-6">Email</span>
+              <input placeholder="Enter your Email" id="tshirt-email" type="text" class="form-control" />
+            </div>
+            <div class="input-group mb-3">
+
+              <span class="input-group-text rounded-0 fs-6">Contact Details</span>
+              <input placeholder="Contact" id="tshirt-contact" type="text" class="form-control" />
+            </div>
+            <span class="input-group-text rounded-0 fs-6">Description</span>
+            <textarea placeholder="Some Description" id="tshirt-description" name="shirt" rows="3"></textarea>
+          </div>
+          <div>
+            <h5 style="text-align: center; width: 100%;" id="tshirt-message"></h5>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="button" id="tshirt-submit" class="btn btn-primary">Submit Request</button>
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="py-5 bg-primary">
       <div class="container">
         <div class="row align-items-center">
@@ -194,7 +273,7 @@
       </div>
     </footer>
   </div>
-
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   <script src="js/jquery-3.3.1.min.js"></script>
   <script src="js/jquery-migrate-3.0.1.min.js"></script>
   <script src="js/jquery-ui.js"></script>
@@ -248,7 +327,7 @@
       });
     });
 
-    
+
   </script>
 
 </body>
