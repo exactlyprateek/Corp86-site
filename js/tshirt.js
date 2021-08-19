@@ -178,7 +178,7 @@ instance.designer().addElement('Front', 'Tshirt', null, [
 		name: '#D6F201',
 		color: '#D6F201',
 		image: {
-			url: '/images/Tshirts/Tshirt_D6F201.png',
+			url: `http://${web}/images/Tshirts/Tshirt_D6F201.png`,
 			name: 'Black tshirt'
 		},
 		active: true
