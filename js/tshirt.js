@@ -85,7 +85,6 @@ var options = {
 			collapsed: !!0,
 			collapsible: !!0,
 			items: [
-				
 				// { name: 'Reset', icon: 'sync-alt', fallback: 'function' }
 			]
 		},
@@ -143,14 +142,34 @@ instance.on('loaded', function() {
 	console.log(`Editor loaded`);
 });
 let imgArr = [];
-instance.designer().addView('Front', { height: 861, width: 983 }); // Access the subclasses from the main class
-instance.designer().addElement('Front', 'Tshirt',  { height: 661, width: 783 }, [
+instance.designer().addView('Front', { height: 661, width: 783 }); // Access the subclasses from the main class
+// let frontUrl = '';
+// function toDataURL(url, callback) {
+// 	var xhr = new XMLHttpRequest();
+// 	xhr.onload = function() {
+// 		var reader = new FileReader();
+// 		reader.onloadend = function() {
+// 			callback(reader.result);
+// 		};
+// 		reader.readAsDataURL(xhr.response);
+// 	};
+// 	xhr.open('GET', url);
+// 	xhr.responseType = 'blob';
+// 	xhr.send();
+// }
+
+// toDataURL('https://www.gravatar.com/avatar/d50c83cc0c6523b4d3f6085295c953e0', function(dataUrl) {
+// 	frontUrl = dataUrl;
+// });
+let web = window.location.href.split("/")[2];
+instance.designer().addElement('Front', 'Tshirt', null, [
 	{
 		name: '#FFFFFF',
 		color: '#ffffff',
 		image: {
-			url: 'https://cdn.pixabay.com/photo/2021/08/13/11/39/tshirt-6542903_960_720.png',
-			// url: '/images/Tshirts/Tshirt_D6F201.png',
+			// url: frontUrl,
+			// url: 'http://127.0.0.1:4200/images/Tshirts/Tshirt_FFFFFF.png',
+			url: `http://${web}/images/Tshirts/Tshirt_FFFFFF.png`,
 			name: 'White tshirt'
 		},
 		active: true
@@ -365,9 +384,10 @@ instance.designer().addElement('Back', 'Tshirt', null, [
 		name: '#FFFFFF',
 		color: '#ffffff',
 		image: {
-			url: 'https://cdn.pixabay.com/photo/2021/08/13/11/39/tshirt-6542903_960_720.png',
+			url: `http://${web}/images/Tshirts/Tshirt_FFFFFF.png`,
+			// url: 'http://127.0.0.1:4200/images/Tshirts/Tshirt_FFFFFF.png',
 			// url: '/images/Tshirts/Tshirt_D6F201.png',
-			
+
 			name: 'White tshirt'
 		},
 		active: true
@@ -583,7 +603,9 @@ instance.designer().addElement('Side', 'Tshirt', null, [
 		name: '#FFFFFF',
 		color: '#ffffff',
 		image: {
-			url: 'https://cdn.pixabay.com/photo/2021/08/17/05/21/05-21-01-273_1280.png',
+			// url: 'http://corp86.com/images/Tshirts/side/Tshirt_FFFFFF.png',
+			url: `http://${web}/images/Tshirts/side/Tshirt_FFFFFF.png`,
+			// url: 'https://cdn.pixabay.com/photo/2021/08/17/05/21/05-21-01-273_1280.png',
 			// url: '/images/Tshirts/side/Tshirt_D6F201.png',
 
 			name: 'White tshirt'
@@ -812,8 +834,7 @@ submitButton.setAttribute('data-target', '#exampleModal');
 let list = document.querySelector('#tshirt-editor > div > section > aside.ask-layout-sider.left > ul > div > ul');
 list.appendChild(submitButton);
 submitButton.addEventListener('click', function() {
-
-	let tshirtMessage = document.querySelector("#tshirt-message");
+	let tshirtMessage = document.querySelector('#tshirt-message');
 	let canvasFront = document.querySelector('#Front');
 	let canvasBack = document.querySelector('#Back');
 	let canvasSide = document.querySelector('#Side');
@@ -887,7 +908,7 @@ submitButton.addEventListener('click', function() {
 		for (var pair of formData.entries()) {
 			console.log(pair[0] + ', ' + pair[1]);
 		}
-		tshirtMessage.innerHTML = "Loading...";
+		tshirtMessage.innerHTML = 'Loading...';
 
 		axios({
 			url: 'https://crop86.herokuapp.com/sendmail',
@@ -902,12 +923,10 @@ submitButton.addEventListener('click', function() {
 				tshirtEmail.value = '';
 				tshirtContact.value = '';
 				tshirtDescription.value = '';
-				tshirtMessage.innerHTML = "Request Submitted Successfully (check your inbox for a copy of response)";
-
+				tshirtMessage.innerHTML = 'Request Submitted Successfully (check your inbox for a copy of response)';
 			})
 			.catch(err => {
-				tshirtMessage.innerHTML = "Request Failed Please Try again";
-
+				tshirtMessage.innerHTML = 'Request Failed Please Try again';
 			});
 		// $.ajax({
 		// 	url: 'https://crop86.herokuapp.com/sendmail',
