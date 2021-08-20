@@ -1976,11 +1976,16 @@ h5,
 	-webkit-box-shadow: 0 0 10px -3px rgba(0, 0, 0, 0.2);
 	box-shadow: 0 0 10px -3px rgba(0, 0, 0, 0.2);
 }
-
+.product-image{
+	/* max-height: 300px; */
+	padding: 4rem;
+width: auto;
+}
 .media-image .media-image-body {
 	padding: 30px;
 	-webkit-box-shadow: 0 0 10px -3px rgba(0, 0, 0, 0.2);
 	box-shadow: 0 0 10px -3px rgba(0, 0, 0, 0.2);
+	max-height: 10rem;
 }
 
 .media-image h2 {
