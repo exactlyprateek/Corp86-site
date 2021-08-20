@@ -160,7 +160,7 @@ let imgArr = [];
 			// toDataURL('https://www.gravatar.com/avatar/d50c83cc0c6523b4d3f6085295c953e0', function(dataUrl) {
 				// 	frontUrl = dataUrl;
 				// });
-instance.designer().addView('Front', { height: 500, width: 500 }); // Access the subclasses from the main class
+instance.designer().addView('Front', { height: 661, width: 783 }); // Access the subclasses from the main class
 let web = window.location.href.split("/")[2];
 instance.designer().addElement('Front', 'Tshirt', null, [
 	{
@@ -378,7 +378,7 @@ instance.designer().addElement('Front', 'Tshirt', null, [
 		active: true
 	}
 ]); // Access the subclasses from the main class
-instance.designer().addView('Back', { height: 500, width: 500 }); // Access the subclasses from the main class
+instance.designer().addView('Back', { height: 661, width: 783 }); // Access the subclasses from the main class
 instance.designer().addElement('Back', 'Tshirt', null, [
 	{
 		name: '#FFFFFF',
@@ -597,7 +597,7 @@ instance.designer().addElement('Back', 'Tshirt', null, [
 	}
 ]); // Access the subclasses from the main class
 
-instance.designer().addView('Side', { height: 500, width: 500 }); // Access the subclasses from the main class
+instance.designer().addView('Side', { height: 661, width: 783 }); // Access the subclasses from the main class
 instance.designer().addElement('Side', 'Tshirt', null, [
 	{
 		name: '#FFFFFF',
