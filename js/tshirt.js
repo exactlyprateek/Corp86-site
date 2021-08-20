@@ -142,25 +142,25 @@ instance.on('loaded', function() {
 	console.log(`Editor loaded`);
 });
 let imgArr = [];
-instance.designer().addView('Front', { height: 661, width: 783 }); // Access the subclasses from the main class
 // let frontUrl = '';
 // function toDataURL(url, callback) {
-// 	var xhr = new XMLHttpRequest();
-// 	xhr.onload = function() {
-// 		var reader = new FileReader();
-// 		reader.onloadend = function() {
-// 			callback(reader.result);
-// 		};
-// 		reader.readAsDataURL(xhr.response);
-// 	};
-// 	xhr.open('GET', url);
-// 	xhr.responseType = 'blob';
-// 	xhr.send();
-// }
-
-// toDataURL('https://www.gravatar.com/avatar/d50c83cc0c6523b4d3f6085295c953e0', function(dataUrl) {
-// 	frontUrl = dataUrl;
-// });
+	// 	var xhr = new XMLHttpRequest();
+	// 	xhr.onload = function() {
+		// 		var reader = new FileReader();
+		// 		reader.onloadend = function() {
+			// 			callback(reader.result);
+			// 		};
+			// 		reader.readAsDataURL(xhr.response);
+			// 	};
+			// 	xhr.open('GET', url);
+			// 	xhr.responseType = 'blob';
+			// 	xhr.send();
+			// }
+			
+			// toDataURL('https://www.gravatar.com/avatar/d50c83cc0c6523b4d3f6085295c953e0', function(dataUrl) {
+				// 	frontUrl = dataUrl;
+				// });
+instance.designer().addView('Front', { height: 500, width: 500 }); // Access the subclasses from the main class
 let web = window.location.href.split("/")[2];
 instance.designer().addElement('Front', 'Tshirt', null, [
 	{
@@ -378,7 +378,7 @@ instance.designer().addElement('Front', 'Tshirt', null, [
 		active: true
 	}
 ]); // Access the subclasses from the main class
-instance.designer().addView('Back', { height: 661, width: 783 }); // Access the subclasses from the main class
+instance.designer().addView('Back', { height: 500, width: 500 }); // Access the subclasses from the main class
 instance.designer().addElement('Back', 'Tshirt', null, [
 	{
 		name: '#FFFFFF',
@@ -597,7 +597,7 @@ instance.designer().addElement('Back', 'Tshirt', null, [
 	}
 ]); // Access the subclasses from the main class
 
-instance.designer().addView('Side', { height: 661, width: 783 }); // Access the subclasses from the main class
+instance.designer().addView('Side', { height: 500, width: 500 }); // Access the subclasses from the main class
 instance.designer().addElement('Side', 'Tshirt', null, [
 	{
 		name: '#FFFFFF',
@@ -822,6 +822,8 @@ instance.on('addImage', function(image) {
 });
 
 // instance.designer().addText('hello world');
+let element = document.querySelector("#tshirt-editor > div > section > aside.ask-layout-sider.left > ul > div > ul > li:nth-child(2) > span.ask-menu-content");
+element.innerHTML = "Colors";
 let submitButton = document.createElement('button');
 submitButton.appendChild(document.createTextNode('Submit'));
 submitButton.className = 'btn btn-primary';
