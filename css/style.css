@@ -1985,7 +1985,7 @@ width: auto;
 	padding: 30px;
 	-webkit-box-shadow: 0 0 10px -3px rgba(0, 0, 0, 0.2);
 	box-shadow: 0 0 10px -3px rgba(0, 0, 0, 0.2);
-	max-height: 10rem;
+	/* max-height: 10rem; */
 }
 
 .media-image h2 {
