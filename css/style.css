@@ -445,9 +445,7 @@ h5,
 	min-width: 200px;
 }
 .site-navbar .site-navigation .site-menu .has-children .dropdown > li :hover {
-	
-	background: #FFFFFF;
-
+	background: #ffffff;
 }
 .site-navbar .site-navigation .site-menu .has-children .dropdown > li > a {
 	padding: 5px 20px;
@@ -713,28 +711,28 @@ h5,
 	text-transform: uppercase;
 	width: 100%;
 }
-.center{
+.center {
 	display: flex;
 	justify-content: center;
 	align-items: center;
 }
-.view-more:hover{
+.view-more:hover {
 	color: white;
 	background-color: #e93616;
 }
-.owl-nav{
+.owl-nav {
 	z-index: -1;
 }
-.view-more{
-	background-color: #CC2B0E;
-    color: white;
-    width: 100%;
-    border-radius: 18px;
-    padding: 0.6rem 0rem 0rem 0.6rem;
+.view-more {
+	background-color: #cc2b0e;
+	color: white;
+	width: 100%;
+	border-radius: 18px;
+	padding: 0.6rem 0rem 0rem 0.6rem;
 	/* padding-top: 0.4rem; */
-    box-shadow: 2px 2px 20px rgb(0 0 0 / 40%);
+	box-shadow: 2px 2px 20px rgb(0 0 0 / 40%);
 	font-size: 24px;
-    /* text-transform: uppercase; */
+	/* text-transform: uppercase; */
 }
 .site-heading {
 	font-weight: 300;
@@ -1998,11 +1996,25 @@ h5,
 	margin: 0 auto;
 	-webkit-box-shadow: 0 0 10px -3px rgba(0, 0, 0, 0.2);
 	box-shadow: 0 0 10px -3px rgba(0, 0, 0, 0.2);
+}.owl-next{
+	z-index: 200;
 }
-.product-image{
+.product-image {
 	/* max-height: 300px; */
-	padding: 4rem;
-width: auto;
+	/* margin: 0.3rem; */
+	box-shadow: 0px 3px 19px #00000054;
+    padding: 4rem 2rem 4rem 2rem;
+	transform: scale(0.76);
+	width: auto;
+	border-radius: 8px;
+	transition: all 0.3s;
+}
+
+.product-image:hover {
+	border-radius: 16px;
+	box-shadow: 0px 1px 2px #0000005b;
+	transform: scale(0.74) translate(0,-15px);
+	/* transform: ; */
 }
 .media-image .media-image-body {
 	padding: 30px;
@@ -2106,9 +2118,13 @@ width: auto;
 	max-width: 50%;
 	max-height: 10rem;
 }
-#tshirt-description{
+#tshirt-description {
 	width: 100%;
 }
-#customize-button{
+#customize-button {
 	width: 100%;
+}
+
+.owl-stage-outer > img {
+	box-shadow: 3px 3px 3px black;
 }
